@@ -39,7 +39,7 @@ class OpenApiCollectionGenerator extends CollectionGeneratorAbstract
         return self::OPEN_API_PATH;
     }
 
-    private function generateAllPaths(string $entityName, string $route): void
+    protected function generateAllPaths(string $entityName, string $route): void
     {
         $paths = Paths::buildPaths($this->getActionsList($entityName), $entityName, $route, $this->fields);
 
@@ -48,7 +48,7 @@ class OpenApiCollectionGenerator extends CollectionGeneratorAbstract
         }
     }
 
-    private function setSchemas(string $entityName): void
+    protected function setSchemas(string $entityName): void
     {
         $this->openApi->addSchema($entityName, $this->fields->getFieldsSchema());
 
@@ -57,7 +57,7 @@ class OpenApiCollectionGenerator extends CollectionGeneratorAbstract
         }
     }
 
-    private function loadOldCollection(): array
+    protected function loadOldCollection(): array
     {
         if (file_exists($this->rootDirectory.'/'.self::OPEN_API_PATH)) {
             $file = $this->rootDirectory.'/'.self::OPEN_API_PATH;

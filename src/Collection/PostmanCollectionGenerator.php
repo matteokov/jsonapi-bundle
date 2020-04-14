@@ -63,7 +63,7 @@ class PostmanCollectionGenerator extends CollectionGeneratorAbstract
         return self::POSTMAN_PATH;
     }
 
-    private function generateBody(string $entityName, string $method, ClassMetadataInfo $classMetadata): array
+    protected function generateBody(string $entityName, string $method, ClassMetadataInfo $classMetadata): array
     {
         $data = [
             'type' => JsonApiStr::entityNameToType($entityName),
@@ -82,7 +82,7 @@ class PostmanCollectionGenerator extends CollectionGeneratorAbstract
         ];
     }
 
-    private function getAttributes(array $fields): array
+    protected function getAttributes(array $fields): array
     {
         $attributes = [];
 
@@ -97,7 +97,7 @@ class PostmanCollectionGenerator extends CollectionGeneratorAbstract
         return $attributes;
     }
 
-    private function getRelationships(array $associations): array
+    protected function getRelationships(array $associations): array
     {
         $relationships = [];
 
@@ -114,7 +114,7 @@ class PostmanCollectionGenerator extends CollectionGeneratorAbstract
         return $relationships;
     }
 
-    private function loadOldCollection(): array
+    protected function loadOldCollection(): array
     {
         if ($this->fileManager->fileExists(self::POSTMAN_PATH)) {
             $collection = json_decode(
@@ -134,7 +134,7 @@ class PostmanCollectionGenerator extends CollectionGeneratorAbstract
         return $collection;
     }
 
-    private function alreadyExists(array $collection, array $directory): ?int
+    protected function alreadyExists(array $collection, array $directory): ?int
     {
         foreach ($collection['item'] as $index => $item) {
             if ($item['name'] === $directory['name']) {

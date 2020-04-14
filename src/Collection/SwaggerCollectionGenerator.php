@@ -34,7 +34,7 @@ class SwaggerCollectionGenerator extends CollectionGeneratorAbstract
         return self::SWAGGER_PATH;
     }
 
-    private function generateAllPaths(string $entityName, string $route): void
+    protected function generateAllPaths(string $entityName, string $route): void
     {
         $paths = Paths::buildPaths($this->getActionsList($entityName), $entityName, $route, $this->fields);
 
@@ -43,7 +43,7 @@ class SwaggerCollectionGenerator extends CollectionGeneratorAbstract
         }
     }
 
-    private function setDefinitions(string $entityName): void
+    protected function setDefinitions(string $entityName): void
     {
         $this->swagger->addDefinition($entityName, $this->fields->getFieldsSchema());
 
@@ -52,7 +52,7 @@ class SwaggerCollectionGenerator extends CollectionGeneratorAbstract
         }
     }
 
-    private function loadOldCollection(): array
+    protected function loadOldCollection(): array
     {
         if (file_exists($this->rootDirectory.'/'.self::SWAGGER_PATH)) {
             $file = $this->rootDirectory.'/'.self::SWAGGER_PATH;

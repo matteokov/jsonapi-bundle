@@ -16,7 +16,7 @@ abstract class CollectionGeneratorAbstract
     const DELETE_ACTION = 'delete';
     const VIEW_ACTION = 'view';
 
-    private static $actions = [
+    protected static $actions = [
         self::LIST_ACTION => ['title' => '%s List', 'method' => 'GET'],
         self::ADD_ACTION => ['title' => 'Add %s', 'method' => 'POST'],
         self::EDIT_ACTION => ['title' => 'Edit %s', 'method' => 'PATCH'],
