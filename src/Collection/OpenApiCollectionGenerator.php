@@ -11,9 +11,9 @@ use Symfony\Component\Yaml\Yaml;
 class OpenApiCollectionGenerator extends CollectionGeneratorAbstract
 {
     /** @var OpenApi */
-    private $openApi;
+    protected $openApi;
     /** @var Attributes */
-    private $fields;
+    protected $fields;
 
     const OPEN_API_PATH = 'collections/open_api.yaml';
     const OPEN_API_TEMPLATE_PATH = __DIR__.'/../Resources/skeleton/open_api.yaml';

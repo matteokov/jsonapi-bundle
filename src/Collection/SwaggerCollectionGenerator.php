@@ -11,9 +11,9 @@ use Symfony\Component\Yaml\Yaml;
 class SwaggerCollectionGenerator extends CollectionGeneratorAbstract
 {
     /** @var Swagger */
-    private $swagger;
+    protected $swagger;
     /** @var Attributes */
-    private $fields;
+    protected $fields;
 
     const SWAGGER_PATH = 'collections/swagger.yaml';
     const SWAGGER_TEMPLATE_PATH = __DIR__.'/../Resources/skeleton/swagger.yaml';
